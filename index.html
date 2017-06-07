@@ -10,35 +10,37 @@
     <link rel="stylesheet" href="app.css">
   </head>
   <body>
-    <div class="row">
-      <div class="medium-8 medium-offset-2 column">
-        <h1>Jeffervescence</h1>
-        <form id="flick-form">
-          <div class="input-group">
-            <input 
-              type="text"
-              class="input-group-field"
-              name="flickName"
-              placeholder="Name a flick"
-            >
-            <div class="input-group-button">
-              <button 
-                class="success button" 
-                type="submit"
+    <div class="onTop">
+      <div class="row">
+        <div class="medium-8 medium-offset-2 column">
+          <h1>Jeffervescence</h1>
+          <form id="flick-form">
+            <div class="input-group">
+              <input 
+                type="text"
+                class="input-group-field"
+                name="flickName"
+                placeholder="Name a flick"
               >
-                Add flick
-              </button>
+              <div class="input-group-button">
+                <button 
+                  class="success button" 
+                  type="submit"
+                >
+                  Add flick
+                </button>
+              </div>
             </div>
-          </div>
-        </form>
-      </div>    
-    </div>
-
-    <div class="row">
-      <div class="medium-8 medium-offset-2 column">
-        <ul id="flick-list"></ul>
+          </form>
+        </div>   
+      </div> 
+      <div class="row">
+        <div class="medium-8 medium-offset-2 column">
+          <ul id="flick-list"></ul>
+        </div>
       </div>
     </div>
+    <div class="back"></div>
     <script src="app.js"></script>
   </body>
 </html>

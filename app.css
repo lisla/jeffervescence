@@ -30,6 +30,14 @@ html, body{
   margin: 0;
 }
 
-h1{
-  font-style: italic;
+div.back{
+  height: 100%;
+  margin: 0;
+  background-image: url("http://static3.fjcdn.com/comments/Jeff+goldblum+is+now+bribing+babies+to+like+him+_71eddc612264ac06294a4da06b4a084f.jpg");
+  opacity: 0.2;
+  z-index: -3;
+}
+div.onTop{
+  position: absolute;
+  z-index: 10;
 }
