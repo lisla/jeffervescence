@@ -20,7 +20,8 @@ const app = {
     }
     const listItem = this.renderListItem(flick)
     
-    this.flicks[this.max] = flick
+    // this.flicks[this.max] = flick
+    this.flicks.push(flick)
   
     this.list.insertBefore(listItem, this.list.firstChild)
     this.max++

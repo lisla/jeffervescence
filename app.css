@@ -47,3 +47,8 @@ div.onTop{
 div.button-group{
   float:right;
 }
+
+h1{
+  font-size: 100px;
+  font-family: 'Arizonia';
+}
