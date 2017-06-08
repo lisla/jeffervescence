@@ -1,9 +1,9 @@
 .template {
-  visibility: hidden;
+  display: none;
 }
 
 li {
-  border: 1px solid lightgray;
+  border: 1px solid white;
   border-radius: 3px;
   padding: 0.4em 1em;
   display: flex;
@@ -51,4 +51,17 @@ div.button-group{
 h1{
   font-size: 100px;
   font-family: 'Arizonia';
+}
+
+.actions{
+  float: right;
+}
+
+.flick-year{
+  float: right;
+  margin-left: 100px;
+}
+
+.input-group-field{
+  display: block;
 }

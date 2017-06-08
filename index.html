@@ -25,13 +25,21 @@
                 autofocus
                 required
               >
+              <input 
+                type="number"
+                class="input-group-field"
+                name="flickYear"
+                placeholder="Year"
+                autofocus
+                required
+              >
               <div class="input-group-button">
-                <button 
-                  class="success button" 
-                  type="submit"
-                >
-                  Add flick
-                </button>
+              <button 
+                class="success button" 
+                type="submit"
+              >
+                Add flick
+              </button>
               </div>
             </div>
           </form>
@@ -41,10 +49,21 @@
         <div class="medium-8 medium-offset-2 column">
           <ul class="no-bullet" id="flick-list">
             <li class="flick template">
-              <span class="flick-name"></span>
+              <span 
+                class="flick-name"
+                contenteditable="true"
+              >
+              </span>
+
+              <span
+                class="flick-year"
+              >
+              </span>
               <span class="actions">
-                <button class="fav button">Fav</button>
+                <button class="promote button">Fav</button>
                 <button class="remove button alert">Remove</button>
+                <button class="up button">Up</button>
+                <button class="down button">Down</button>
               </span>
             </li>
           </ul>
