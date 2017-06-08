@@ -41,7 +41,7 @@ const app = {
     
     item
       .querySelector('button.remove')
-      .addEventLestener('click', this.removeFlick)
+      .addEventListener('click', this.removeFlick)
 
     return item;
   },
@@ -77,7 +77,7 @@ const app = {
       element.parentNode.insertBefore(element, element.previousElementSibling)
     }
   },
-  
+
   moveItemDown(ev){
     const b = ev.target
     const p = b.parentNode
