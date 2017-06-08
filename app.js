@@ -7,6 +7,7 @@ const app = {
     document
       .querySelector(selectors.formSelector)
       .addEventListener('submit', this.addFlick.bind(this))
+
   },
 
   addFlick(ev) {
@@ -23,6 +24,8 @@ const app = {
   
     this.list.insertBefore(listItem, this.list.firstChild)
     this.max++
+
+    f.reset()
   },
 
   renderListItem(flick){
