@@ -3,6 +3,8 @@ const app = {
     this.flicks = []
     this.max = 0
     this.list = document.querySelector(selectors.listSelector)
+    this.template = document
+      .querySelector(selectors.templateSelector)
 
     document
       .querySelector(selectors.formSelector)
@@ -30,39 +32,48 @@ const app = {
   },
 
   renderListItem(flick){
-    const item = document.createElement('li')
-    const p = document.createElement('p')
-    p.textContent = flick.name
-    const div = document.createElement('div')
-    div.className = 'button-group'
-    const b1 = document.createElement('a')
-    b1.className = 'success button'
-    const b2 = document.createElement('a')
-    b2.className = 'alert button'
-    const b3 = document.createElement('a')
-    b3.className = 'button'
-    const b4 = document.createElement('a')
-    b4.className = 'button'
-
-    b1.textContent = 'Promote'
-    b1.onclick = this.promoteItem.bind(this)
-    b2.textContent = 'Delete'
-    b2.onclick = this.deleteItem.bind(this)
-    b3.innerHTML = '&#8679;'
-    b3.onclick = this.moveItemUp.bind(this)
-    b4.innerHTML = '&#8681;'
-    b4.onclick = this.moveItemDown.bind(this)
-
-    div.appendChild(b1)
-    div.appendChild(b2)
-    div.appendChild(b3)
-    div.appendChild(b4)
-
-    item.appendChild(p)
-    item.appendChild(div)
+    const item = this.template.cloneNode(true)
+    item.classList.remove('template')
     item.dataset.id = flick.id
+    item
+      .querySelector('.flick-name')
+      .textContent = flick.name
 
-    return item
+    return item;
+
+    // const item = document.createElement('li')
+    // const p = document.createElement('p')
+    // p.textContent = flick.name
+    // const div = document.createElement('div')
+    // div.className = 'button-group'
+    // const b1 = document.createElement('a')
+    // b1.className = 'success button'
+    // const b2 = document.createElement('a')
+    // b2.className = 'alert button'
+    // const b3 = document.createElement('a')
+    // b3.className = 'button'
+    // const b4 = document.createElement('a')
+    // b4.className = 'button'
+
+    // b1.textContent = 'Promote'
+    // b1.onclick = this.promoteItem.bind(this)
+    // b2.textContent = 'Delete'
+    // b2.onclick = this.deleteItem.bind(this)
+    // b3.innerHTML = '&#8679;'
+    // b3.onclick = this.moveItemUp.bind(this)
+    // b4.innerHTML = '&#8681;'
+    // b4.onclick = this.moveItemDown.bind(this)
+
+    // div.appendChild(b1)
+    // div.appendChild(b2)
+    // div.appendChild(b3)
+    // div.appendChild(b4)
+
+    // item.appendChild(p)
+    // item.appendChild(div)
+    // item.dataset.id = flick.id
+
+    // return item
   },
 
   promoteItem(ev){
@@ -107,5 +118,6 @@ const app = {
 
 app.init({
   formSelector: '#flick-form',
-  listSelector: '#flick-list'
+  listSelector: '#flick-list',
+  templateSelector: '.flick.template',
 })

@@ -1,7 +1,5 @@
-li button {
-  background: lightgray;
-  padding: 10px 3px;
-  width: 150%;
+.template {
+  visibility: hidden;
 }
 
 li {
@@ -27,9 +25,6 @@ li p {
   font-style: italic;
 }
 
-ul{
-  list-style: none;
-}
 
 html, body{
   color: white;
