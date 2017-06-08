@@ -6,8 +6,7 @@ li {
   border: 1px solid lightgray;
   border-radius: 3px;
   padding: 0.4em 1em;
-  display: block;
-  background-color: white;
+  display: flex;
   color: black;
   min-height: 3.5em;
   margin-bottom: 20px;
@@ -18,13 +17,13 @@ li {
   -ms-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
 }
+
 li p {
   float: left;
   margin-top: 0.3em;
   font-size: 18px;
   font-style: italic;
 }
-
 
 html, body{
   color: white;
