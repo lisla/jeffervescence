@@ -24,11 +24,17 @@ const app = {
     
     // this.flicks[this.max] = flick
     this.flicks.unshift(flick)
+    this.save()
   
     this.list.insertBefore(listItem, this.list.firstChild)
     this.max++
 
     f.reset()
+  },
+
+  save(){
+    localStorage
+      .setItem('flicks', JSON.stringify(this.flicks))
   },
 
   renderListItem(flick){
@@ -76,6 +82,7 @@ const app = {
     }
 
     listItem.remove()
+    this.save();
   },
 
   moveItemUp(ev){
