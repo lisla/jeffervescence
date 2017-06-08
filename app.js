@@ -58,6 +58,7 @@ const app = {
     div.appendChild(b4)
 
     item.appendChild(div)
+    item.dataset.id = flick.id
 
     return item
   },
