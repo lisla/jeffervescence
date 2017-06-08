@@ -3,6 +3,7 @@ const app = {
     this.flicks = []
     this.max = 0
     this.list = document.querySelector(selectors.listSelector)
+
     document
       .querySelector(selectors.formSelector)
       .addEventListener('submit', this.addFlick.bind(this))
@@ -17,7 +18,9 @@ const app = {
       name: f.flickName.value,
     }
     const listItem = this.renderListItem(flick)
+    
     this.flicks[this.max] = flick
+  
     this.list.insertBefore(listItem, this.list.firstChild)
     this.max++
   },

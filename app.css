@@ -11,6 +11,7 @@ li {
   display: block;
   background-color: white;
   color: black;
+  min-height: 3.5em;
 
   -webkit-transition: all 0.4s ease-in-out;
   -moz-transition: all 0.4s ease-in-out;
@@ -40,4 +41,8 @@ div.back{
 div.onTop{
   position: absolute;
   z-index: 10;
+}
+
+div.button-group{
+  float:right;
 }
