@@ -7,7 +7,7 @@ li button {
 li {
   border: 1px solid lightgray;
   border-radius: 3px;
-  padding: 0.4em 0em;
+  padding: 0.4em 1em;
   display: block;
   background-color: white;
   color: black;
@@ -19,6 +19,12 @@ li {
   -o-transition: all 0.4s ease-in-out;
   -ms-transition: all 0.4s ease-in-out;
   transition: all 0.4s ease-in-out;
+}
+li p {
+  float: left;
+  margin-top: 0.3em;
+  font-size: 18px;
+  font-style: italic;
 }
 
 ul{

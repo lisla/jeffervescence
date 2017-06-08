@@ -21,7 +21,7 @@ const app = {
     const listItem = this.renderListItem(flick)
     
     // this.flicks[this.max] = flick
-    this.flicks.push(flick)
+    this.flicks.unshift(flick)
   
     this.list.insertBefore(listItem, this.list.firstChild)
     this.max++
@@ -31,7 +31,8 @@ const app = {
 
   renderListItem(flick){
     const item = document.createElement('li')
-    item.textContent = flick.name
+    const p = document.createElement('p')
+    p.textContent = flick.name
     const div = document.createElement('div')
     div.className = 'button-group'
     const b1 = document.createElement('a')
@@ -57,6 +58,7 @@ const app = {
     div.appendChild(b3)
     div.appendChild(b4)
 
+    item.appendChild(p)
     item.appendChild(div)
     item.dataset.id = flick.id
 
