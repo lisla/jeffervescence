@@ -29,9 +29,8 @@ li p {
 
 html, body{
   color: white;
-  background: linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #9cb5e8 75%);
+  background: linear-gradient(141deg, #42f4a4 0%, #0fb8ad 20%, #1fc8db 51%, #9cb5e8 75%);
   /*background: linear-gradient(141deg, indigo 0%, purple 51%, violet 75%);*/
-
   height: 100%;
   margin: 0;
 }
