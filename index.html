@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.3.1/css/foundation.min.css">
     <link rel="stylesheet" href="app.css">
     <link href='http://fonts.googleapis.com/css?family=Arizonia' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Parisienne" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Josefin+Slab:700|Lobster" rel="stylesheet">
   </head>
   <body>
     <div class="onTop">
@@ -21,7 +23,7 @@
                 type="text"
                 class="input-group-field"
                 name="flickName"
-                placeholder="Name a flick"
+                placeholder="Name a movie"
                 autofocus
                 required
               >
@@ -49,22 +51,28 @@
         <div class="medium-8 medium-offset-2 column">
           <ul class="no-bullet" id="flick-list">
             <li class="flick template">
-              <span 
-                class="flick-name"
-                contenteditable="true"
-              >
-              </span>
+              <div class="row" style="padding: 5px;">
+                <div class="small-5 column">
+                  <span 
+                    class="flick-name"
+                    contenteditable="true"
+                  >
+                  </span>
 
-              <span
-                class="flick-year"
-              >
-              </span>
-              <span class="actions">
-                <button class="promote button">Fav</button>
-                <button class="remove button alert">Remove</button>
-                <button class="up button">Up</button>
-                <button class="down button">Down</button>
-              </span>
+                  <span
+                    class="flick-year"
+                  >
+                  </span>
+                </div>
+                <div class="small-7 column" >
+                  <span class="actions">
+                    <button class="promote button">Fav</button>
+                    <button class="remove button alert">Remove</button>
+                    <button class="up button">Up</button>
+                    <button class="down button">Down</button>
+                  </span>
+                </div>
+              </div>
             </li>
           </ul>
         </div>

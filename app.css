@@ -2,11 +2,13 @@
   display: none;
 }
 
+input{
+  opacity: 0.6;
+}
+
 li {
   border: 1px solid white;
   border-radius: 3px;
-  padding: 0.4em 1em;
-  display: flex;
   color: black;
   min-height: 3.5em;
   margin-bottom: 20px;
@@ -37,6 +39,9 @@ div.back{
   margin: 0;
   background-image: url("http://static3.fjcdn.com/comments/Jeff+goldblum+is+now+bribing+babies+to+like+him+_71eddc612264ac06294a4da06b4a084f.jpg");
   opacity: 0.15;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
   z-index: -3;
 }
 div.onTop{
@@ -49,8 +54,9 @@ div.button-group{
 }
 
 h1{
+  text-align: center;
   font-size: 100px;
-  font-family: 'Arizonia';
+  font-family: 'Lobster';
 }
 
 .actions{
@@ -59,9 +65,17 @@ h1{
 
 .flick-year{
   float: right;
-  margin-left: 100px;
+  /*margin-left: 100px;*/
 }
 
 .input-group-field{
   display: block;
+}
+
+.button.success{
+  height: 100%;
+}
+
+.header{
+  font-stretch: expanded;
 }

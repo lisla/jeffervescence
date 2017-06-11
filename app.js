@@ -105,20 +105,18 @@ const app = {
   promoteItem(ev){
     const b = ev.target
     b.textContent = 'Un-fav'
-    const element = b.parentElement.parentNode
+    const element = b.closest('li')
     
-    b
-      .parentElement.parentElement
-      .style.backgroundColor = 'gold'
+    element.style.backgroundColor = 'gold'
     b.onclick = this.demoteItem.bind(this)
   },
 
   demoteItem(ev){
     const b = ev.target
     b.textContent = 'Fav'
-    b
-      .parentElement.parentElement
-      .style.background = 'none'
+    const element = b.closest('li')
+
+    element.style.backgroundColor = 'transparent'
     b.onclick = this.promoteItem.bind(this)
   },
 
@@ -140,8 +138,7 @@ const app = {
 
   moveItemUp(ev){
     const b = ev.target
-    const p = b.parentNode
-    const element = p.parentElement
+    const element = b.closest('li')
     if(element.previousElementSibling){
       element.parentNode.insertBefore(element, element.previousElementSibling)
       
@@ -156,8 +153,7 @@ const app = {
 
   moveItemDown(ev){
     const b = ev.target
-    const p = b.parentNode
-    const element = p.parentElement
+    const element = b.closest('li')
     if(element.nextElementSibling){
       element.parentNode.insertBefore(element.nextElementSibling, element)
       
