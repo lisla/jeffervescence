@@ -78,6 +78,10 @@ const app = {
     item
       .querySelector('.flick-name')
       .textContent = flick.name
+
+    item
+      .querySelector('.flick-name')
+      .addEventListener('keypress', this.saveOnEnter.bind(this, flick))
     
     item
       .querySelector('.flick-year')
@@ -93,23 +97,47 @@ const app = {
     
     item
       .querySelector('button.up')
-      .onclick = this.moveUp.bind(this, flick)
+      .addEventListener('click', this.moveUp.bind(this, flick))
 
     item
       .querySelector('button.down')
-      .onclick = this.moveDown.bind(this, flick)
+      .addEventListener('click', this.moveDown.bind(this, flick))
 
     item
-      .querySelector('.flick-name')
-      .onkeyup = this.changeName.bind(this)
+      .querySelector('.button.edit')
+      .addEventListener('click', this.edit.bind(this, flick))
 
     return item
   },
 
-  changeName(ev){
-    const listItem = ev.target.parentNode
-    this.flicks[this.flicks.length - listItem.dataset.id].name = listItem.firstElementChild.textContent
+  edit(flick, ev){
+    const listItem = ev.target.closest('.flick')
+    const nameField = listItem.querySelector('.flick-name')
+    const btn = listItem.querySelector('.edit.button')
+
+    const icon = btn.querySelector('i.fa')
+
+    if (nameField.isContentEditable){
+      nameField.contentEditable = false
+      icon.classList.remove('fa-check')
+      icon.classList.add('fa-pencil')
+      btn.classList.remove('success')
+    }
+    else {
+      nameField.contentEditable = true
+      nameField.focus()
+      icon.classList.remove('fa-pencil')
+      icon.classList.add('fa-check')
+      btn.classList.add('success')
+    }
+    flick.name = nameField.textContent
     this.save()
+  },
+
+  saveOnEnter(flick, ev){
+    if (ev.key === 'Enter'){
+      this.edit(flick, ev)
+    }
   },
 
   favFlick(flick, ev){
