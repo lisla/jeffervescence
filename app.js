@@ -11,11 +11,6 @@ class App {
       .addEventListener('submit', this.addFlickViaForm.bind(this))
 
     this.load()
-    for (let i = 0; i < this.flicks.length; i++){
-      if (this.flicks[i].id > this.max){
-        this.max = this.flicks[i].id
-      }
-    }
   }
 
   load(){
@@ -32,6 +27,11 @@ class App {
     const listItem = this.renderListItem(flick)
     this.list.insertBefore(listItem, this.list.firstChild)
     this.max++
+
+    if (flick.id > this.max){
+      this.max = flick.id
+    }
+
     this.flicks.unshift(flick)
     this.save()
   }

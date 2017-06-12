@@ -7,14 +7,17 @@ input{
 }
 
 .flick {
-  border: 1px solid white;
-  border-radius: 3px;
+  border: 0.5px solid white;
+  border-radius: 2px;
   color: white;
-  margin-bottom: 10px;
   align-items: center;
   transition: 0.5s;
   font-size: 20px;
   padding: 0.5rem 1rem;
+}
+
+.flick + .flick{
+  border-top: none;
 }
 
 html, body{
@@ -66,14 +69,23 @@ h1{
 
 .flick-name {
   flex-grow: 1;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: calc(100% - 200px);
+  margin-right: 1rem;
 }
 
 .inputs{
   margin-bottom: 20px;
 }
 
-.inputs .column{
+.column{
   padding-right: 0;
+}
+
+.button{
+  margin: 0;
 }
 
 .flick:first-child button.up,
@@ -83,6 +95,6 @@ h1{
   cursor: not-allowed;
 }
 
-.button.success{
-  width: 100%;
+.input-group-button .button.success{
+  width: 90%;
 }
