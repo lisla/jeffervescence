@@ -93,11 +93,11 @@ const app = {
     
     item
       .querySelector('button.up')
-      .onclick = this.moveItemUp.bind(this)
+      .onclick = this.moveUp.bind(this, flick)
 
     item
       .querySelector('button.down')
-      .onclick = this.moveItemDown.bind(this)
+      .onclick = this.moveDown.bind(this, flick)
 
     item
       .querySelector('.flick-name')
@@ -137,50 +137,36 @@ const app = {
     this.save()
   },
 
-  moveItemUp(ev){
-    const b = ev.target
-    const element = b.closest('li')
-    if(element.previousElementSibling){
-      element.parentNode.insertBefore(element, element.previousElementSibling)
+  moveUp(flick, ev){
+    const listItem = ev.target.closest('.flick')
 
-      for (let i = 0; i < this.flicks.length; i++){
-        if (this.flicks[i].name === element.dataset.name){
-          const temp = this.flicks[i-1]
-          this.flicks[i-1] = this.flicks[i]
-          this.flicks[i] = temp 
-          break
-        }
-      }
-      
-      // const temp = this.flicks[this.flicks.length - element.dataset.id]
-      // this.flicks[this.flicks.length - element.dataset.id] = this.flicks[this.flicks.length - element.dataset.id - 1]
-      // this.flicks[this.flicks.length - element.dataset.id - 1] = temp
+    const index = this.flicks.findIndex((currentFlick, i) => {
+      return currentFlick.id === flick.id
+    })
 
-      // this.reIndexFlicks()
+    if (index > 0) {
+      this.list.insertBefore(listItem, listItem.previousElementSibling)
+
+      const previousFlick = this.flicks[index - 1]
+      this.flicks[index - 1] = flick
+      this.flicks[index] = previousFlick
       this.save()
     }
   },
 
-  moveItemDown(ev){
-    const b = ev.target
-    const element = b.closest('li')
-    if(element.nextElementSibling){
-      element.parentNode.insertBefore(element.nextElementSibling, element)
-      
-      for (let i = 0; i < this.flicks.length; i++){
-        if (this.flicks[i].name === element.dataset.name){
-          const temp = this.flicks[i+1]
-          this.flicks[i+1] = this.flicks[i]
-          this.flicks[i] = temp 
-          break
-        }
-      }
-      
-      // const temp = this.flicks[this.flicks.length - element.dataset.id]
-      // this.flicks[this.flicks.length - element.dataset.id] = this.flicks[this.flicks.length - element.dataset.id + 1]
-      // this.flicks[this.flicks.length - element.dataset.id + 1] = temp
+  moveDown(flick, ev){
+    const listItem = ev.target.closest('.flick')
 
-      // this.reIndexFlicks()
+    const index = this.flicks.findIndex((currentFlick, i) => {
+      return currentFlick.id === flick.id
+    })
+
+    if (index < this.flicks.length - 1) {
+      this.list.insertBefore(listItem.nextElementSibling, listItem)
+
+      const nextFlick = this.flicks[index + 1]
+      this.flicks[index + 1] = flick
+      this.flicks[index] = nextFlick
       this.save()
     }
   },

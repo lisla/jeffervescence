@@ -12,7 +12,7 @@ input{
   color: white;
   margin-bottom: 20px;
   align-items: center;
-  transition: 0.25s;
+  transition: 0.5s;
 }
 
 html, body{
@@ -53,18 +53,30 @@ h1{
 }
 
 .input-group-field{
-  display: block;
-}
-
-.button.success{
-  height: 100%;
+  display: inline-table;
 }
 
 .flick.fav{
-  background-color: gold;
-  border-color: gray;
+  background: linear-gradient(to left, lightgoldenrodyellow, gold);
+  border-color: darkslategray;
+  color: darkslategray;
 }
 
 .flick-name {
   flex-grow: 1;
+}
+
+.inputs{
+  margin-bottom: 20px;
+}
+
+.inputs .column{
+  padding-right: 0;
+}
+
+.flick:first-child button.up,
+.flick:last-child button.down{
+  background-color: #ddd;
+  color: #eee;
+  cursor: not-allowed;
 }
