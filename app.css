@@ -6,31 +6,18 @@ input{
   opacity: 0.6;
 }
 
-li {
+.flick {
   border: 1px solid white;
   border-radius: 3px;
-  color: black;
-  min-height: 3.5em;
+  color: white;
   margin-bottom: 20px;
-
-  -webkit-transition: all 0.4s ease-in-out;
-  -moz-transition: all 0.4s ease-in-out;
-  -o-transition: all 0.4s ease-in-out;
-  -ms-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
-}
-
-li p {
-  float: left;
-  margin-top: 0.3em;
-  font-size: 18px;
-  font-style: italic;
+  align-items: center;
+  transition: 0.25s;
 }
 
 html, body{
   color: white;
   background: linear-gradient(141deg, #42f4a4 0%, #0fb8ad 20%, #1fc8db 51%, #9cb5e8 75%);
-  /*background: linear-gradient(141deg, indigo 0%, purple 51%, violet 75%);*/
   height: 100%;
   margin: 0;
 }
@@ -48,10 +35,6 @@ div.back{
 div.onTop{
   position: absolute;
   z-index: 10;
-}
-
-div.button-group{
-  float:right;
 }
 
 h1{
@@ -77,6 +60,11 @@ h1{
   height: 100%;
 }
 
-.header{
-  font-stretch: expanded;
+.flick.fav{
+  background-color: gold;
+  border-color: gray;
+}
+
+.flick-name {
+  flex-grow: 1;
 }

@@ -44,6 +44,7 @@ const app = {
       id: this.max + 1,
       name: f.flickName.value,
       year: f.flickYear.value,
+      fav: false,
     }
     
     this.addFlick(flick)
@@ -70,6 +71,10 @@ const app = {
     item.dataset.id = flick.id
     item.dataset.name = flick.name
 
+    if (flick.fav){
+      item.classList.add('fav')
+    }
+
     item
       .querySelector('.flick-name')
       .textContent = flick.name
@@ -83,8 +88,8 @@ const app = {
       .addEventListener('click', this.removeFlick.bind(this))
 
     item
-      .querySelector('button.promote')
-      .onclick = this.promoteItem.bind(this)
+      .querySelector('button.fav')
+      .addEventListener('click', this.favFlick.bind(this, flick))
     
     item
       .querySelector('button.up')
@@ -107,22 +112,13 @@ const app = {
     this.save()
   },
 
-  promoteItem(ev){
+  favFlick(flick, ev){
     const b = ev.target
-    b.textContent = 'Un-fav'
-    const element = b.closest('li')
-    
-    element.style.backgroundColor = 'gold'
-    b.onclick = this.demoteItem.bind(this)
-  },
-
-  demoteItem(ev){
-    const b = ev.target
-    b.textContent = 'Fav'
     const element = b.closest('li')
 
-    element.style.backgroundColor = 'transparent'
-    b.onclick = this.promoteItem.bind(this)
+    element.classList.toggle('fav')
+    flick.fav = !flick.fav
+    this.save()   
   },
 
   removeFlick(ev){
