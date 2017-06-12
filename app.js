@@ -11,6 +11,11 @@ const app = {
       .addEventListener('submit', this.addFlickViaForm.bind(this))
 
     this.load()
+    for (let i = 0; i < this.flicks.length; i++){
+      if (this.flicks[i].id > this.max){
+        this.max = this.flicks[i].id
+      }
+    }
   },
 
   load(){
@@ -132,7 +137,7 @@ const app = {
     }
 
     listItem.remove()
-    this.reIndexFlicks()
+    // this.reIndexFlicks()
     this.save()
   },
 
@@ -141,12 +146,21 @@ const app = {
     const element = b.closest('li')
     if(element.previousElementSibling){
       element.parentNode.insertBefore(element, element.previousElementSibling)
-      
-      const temp = this.flicks[this.flicks.length - element.dataset.id]
-      this.flicks[this.flicks.length - element.dataset.id] = this.flicks[this.flicks.length - element.dataset.id - 1]
-      this.flicks[this.flicks.length - element.dataset.id - 1] = temp
 
-      this.reIndexFlicks()
+      for (let i = 0; i < this.flicks.length; i++){
+        if (this.flicks[i].name === element.dataset.name){
+          const temp = this.flicks[i-1]
+          this.flicks[i-1] = this.flicks[i]
+          this.flicks[i] = temp 
+          break
+        }
+      }
+      
+      // const temp = this.flicks[this.flicks.length - element.dataset.id]
+      // this.flicks[this.flicks.length - element.dataset.id] = this.flicks[this.flicks.length - element.dataset.id - 1]
+      // this.flicks[this.flicks.length - element.dataset.id - 1] = temp
+
+      // this.reIndexFlicks()
       this.save()
     }
   },
@@ -157,11 +171,20 @@ const app = {
     if(element.nextElementSibling){
       element.parentNode.insertBefore(element.nextElementSibling, element)
       
-      const temp = this.flicks[this.flicks.length - element.dataset.id]
-      this.flicks[this.flicks.length - element.dataset.id] = this.flicks[this.flicks.length - element.dataset.id + 1]
-      this.flicks[this.flicks.length - element.dataset.id + 1] = temp
+      for (let i = 0; i < this.flicks.length; i++){
+        if (this.flicks[i].name === element.dataset.name){
+          const temp = this.flicks[i+1]
+          this.flicks[i+1] = this.flicks[i]
+          this.flicks[i] = temp 
+          break
+        }
+      }
+      
+      // const temp = this.flicks[this.flicks.length - element.dataset.id]
+      // this.flicks[this.flicks.length - element.dataset.id] = this.flicks[this.flicks.length - element.dataset.id + 1]
+      // this.flicks[this.flicks.length - element.dataset.id + 1] = temp
 
-      this.reIndexFlicks()
+      // this.reIndexFlicks()
       this.save()
     }
   },
