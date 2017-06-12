@@ -1,5 +1,5 @@
-const app = {
-  init(selectors) {
+class App {
+  constructor(selectors) {
     this.flicks = []
     this.max = 0
     this.list = document.querySelector(selectors.listSelector)
@@ -16,7 +16,7 @@ const app = {
         this.max = this.flicks[i].id
       }
     }
-  },
+  }
 
   load(){
     const flicksJSON = localStorage.getItem('flicks')
@@ -26,7 +26,7 @@ const app = {
         .reverse()
         .map(this.addFlick.bind(this))  
     }
-  },
+  }
 
   addFlick(flick){
     const listItem = this.renderListItem(flick)
@@ -34,7 +34,7 @@ const app = {
     this.max++
     this.flicks.unshift(flick)
     this.save()
-  },
+  }
 
   addFlickViaForm(ev) {
     // TODO: Add flick to this.flicks
@@ -50,20 +50,20 @@ const app = {
     this.addFlick(flick)
 
     f.reset()
-  },
+  }
 
   reIndexFlicks(){
     for(let i = 0; i < this.flicks.length; i++){
       this.flicks[i].id = this.flicks.length - i
     }
-  },
+  }
 
   save(){
     localStorage
       .setItem('flicks', JSON.stringify(this.flicks))
 
     console.log(JSON.stringify(this.flicks))
-  },
+  }
 
   renderListItem(flick){
     const item = this.template.cloneNode(true)
@@ -108,7 +108,7 @@ const app = {
       .addEventListener('click', this.edit.bind(this, flick))
 
     return item
-  },
+  }
 
   edit(flick, ev){
     const listItem = ev.target.closest('.flick')
@@ -132,13 +132,13 @@ const app = {
     }
     flick.name = nameField.textContent
     this.save()
-  },
+  }
 
   saveOnEnter(flick, ev){
     if (ev.key === 'Enter'){
       this.edit(flick, ev)
     }
-  },
+  }
 
   favFlick(flick, ev){
     const b = ev.target
@@ -147,7 +147,7 @@ const app = {
     element.classList.toggle('fav')
     flick.fav = !flick.fav
     this.save()   
-  },
+  }
 
   removeFlick(ev){
     const listItem = ev.target.closest('.flick')
@@ -163,7 +163,7 @@ const app = {
     listItem.remove()
     // this.reIndexFlicks()
     this.save()
-  },
+  }
 
   moveUp(flick, ev){
     const listItem = ev.target.closest('.flick')
@@ -180,7 +180,7 @@ const app = {
       this.flicks[index] = previousFlick
       this.save()
     }
-  },
+  }
 
   moveDown(flick, ev){
     const listItem = ev.target.closest('.flick')
@@ -197,10 +197,10 @@ const app = {
       this.flicks[index] = nextFlick
       this.save()
     }
-  },
+  }
 }
 
-app.init({
+const app = new App({
   formSelector: '#flick-form',
   listSelector: '#flick-list',
   templateSelector: '.flick.template',
