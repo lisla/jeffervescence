@@ -52,17 +52,9 @@ class App {
     f.reset()
   }
 
-  reIndexFlicks(){
-    for(let i = 0; i < this.flicks.length; i++){
-      this.flicks[i].id = this.flicks.length - i
-    }
-  }
-
   save(){
     localStorage
       .setItem('flicks', JSON.stringify(this.flicks))
-
-    console.log(JSON.stringify(this.flicks))
   }
 
   renderListItem(flick){
@@ -161,7 +153,6 @@ class App {
     }
 
     listItem.remove()
-    // this.reIndexFlicks()
     this.save()
   }
 
